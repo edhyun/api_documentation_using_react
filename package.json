@@ -1,0 +1,23 @@
+{
+  "name": "smartcar-api-documentation",
+  "version": "1.0.0",
+  "description": "API Documentation",
+  "main": "app.js",
+  "dependencies": {
+    "babel-preset-react": "^6.3.13",
+    "babelify": "^7.2.0",
+    "bootstrap": "^3.3.6",
+    "bower": "^1.7.2",
+    "express": "^4.13.4",
+    "jquery": "^2.2.0",
+    "less": "^2.5.3",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dahyun Eun",
+  "license": "ISC"
+}

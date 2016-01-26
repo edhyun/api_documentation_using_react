@@ -1,0 +1,103 @@
+@import "/bootstrap/dist/css/bootstrap.min.css";
+@import "/bootstrap/dist/css/bootstrap-theme.min.css";
+
+body{
+    background: linear-gradient(to bottom right,#e5743c 0,#d94436 100%);
+    background-repeat: no-repeat;
+    header.navbar{
+        margin:0;
+        background-color: transparent;
+        .navbar-default{
+            border: none;
+        }
+        nav{
+            color: white;
+        }
+    }
+    .docs-header{
+        background-color: transparent;
+        .jumbotron{
+            background: transparent;
+            color: white;
+        }
+    }
+    #navbar{
+        margin-top: 20px;
+        li{
+            a{
+                color: #444;
+                font-size: 15px;
+                padding: 5px 10px;
+                min-width: 250px;
+            }
+        }
+        li:hover{
+            a{
+                color:#d94436;
+                background-color: inherit;
+                border-right: 1px solid #d94436;
+                border-radius: 0;
+            }
+        }
+        li.active{
+            a{
+                font-weight: bold;
+                color:#d94436;
+                background-color: inherit;
+                border-right: 2px solid #d94436;
+                border-radius: 0;
+            }
+        }
+    }
+    .navbar-fixed-top{
+        //background: linear-gradient(to bottom right,#e5743c 0,#d94436 100%);
+        //background-repeat: no-repeat;
+    }
+    #main{
+        background-color: #f7f7f7;
+        #navbar{
+            top:70px;
+        }
+    }
+    #content{
+        padding: 0 0 30px;
+        background-color: white;
+        box-shadow: 0px 0px 3px #ccc;
+        #user-input{
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            label{
+                margin: 0 10px 0 30px;
+            }
+        }
+        .section{
+            padding: 20px 60px;
+            p{
+                margin:25px 0;
+            }
+            pre{
+                margin: 25px 0;
+                padding: 25px 20px;
+                .vId{
+
+                }
+                .apiKey{
+
+                }
+            }
+            table{
+                tbody{
+                    td:first-child{
+                        color:darken(#428bca, 6.5%);
+                    }
+                    td:nth-child(3){
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+        .section + .section{
+            padding-top: 50px;
+        }
+    }
+}

@@ -1,0 +1,217 @@
+[
+  {
+    "method": "get",
+    "url": "/vehicles/:id",
+    "title": "Get a vehicle by ID",
+    "request": [
+      {
+        "type": "String",
+        "field": "id",
+        "description": "The vehicle id"
+      }
+    ],
+    "response": [
+      {
+        "type": "Object",
+        "field": "vehicle",
+        "description": "vehicle information"
+      },
+      {
+        "type": "String",
+        "field": "vehicle.id",
+        "description": "vehicle id"
+      },
+      {
+        "type": "String",
+        "field": "vehicle.make",
+        "description": "the manufacturer of the vehicle"
+      },
+      {
+        "type": "String",
+        "field": "vehicle.model",
+        "description": "the model of the vehicle"
+      },
+      {
+        "type": "String",
+        "field": "vehicle.year",
+        "description": "the model's year"
+      }
+    ],
+    "example": "curl http://api.smartcar.com/vehicles/{{id}} -H 'Authorization: {{apiKey}}'"
+  },
+  {
+    "method": "post",
+    "url": "/vehicles/:id/climate",
+    "title": "Vehicle Climate Control",
+    "request": [
+      {
+        "type": "String",
+        "field": "id",
+        "description": "The vehicle id"
+      },
+      {
+        "type": "String",
+        "field": "action",
+        "description": "'START' or 'STOP'."
+      },
+      {
+        "type": "Number",
+        "field": "temperature",
+        "description": "The temperature to set the climate system to. If not present, the climate system will default to the last set temperature."
+      }
+    ],
+    "response": [
+      {
+        "type": "String",
+        "field": "status",
+        "description": "The status of the command"
+      },
+      {
+        "type": "String",
+        "field": "message",
+        "description": "Additional information"
+      }
+    ],
+    "example": "curl http://api.smartcar.com/vehicles/{{id}}/climate -X POST -H 'Authorization: {{apiKey}}' -d action=START"
+  },
+  {
+    "method": "post",
+    "url": "/vehicles/:id/security",
+    "title": "Vehicle Security Control",
+    "request":  [
+      {
+        "type": "String",
+        "field": "id",
+        "description": "The vehicle id"
+      },
+      {
+        "type": "String",
+        "field": "action",
+        "description": "'LOCK' to lock, 'UNLOCK' to unlock."
+      }
+    ],
+    "response": [
+      {
+        "type": "String",
+        "field": "status",
+        "description": "The status of the command"
+      },
+      {
+        "type": "String",
+        "field": "message",
+        "description": "Additional information"
+      }
+    ],
+    "example": "curl http://api.smartcar.com/vehicles/{{id}}/security -X POST -H 'Authorization: {{apiKey}}' -d action=UNLOCK"
+  },
+  {
+    "method": "post",
+    "url": "/vehicles/:id/sunroof",
+    "title": "Vehicle Sunroof Control",
+    "request": [
+      {
+        "type": "String",
+        "field": "id",
+        "description": "The vehicle id"
+      },
+      {
+        "type": "String",
+        "field": "action",
+        "description": "'OPEN', 'VENT', or 'CLOSE'."
+      }
+    ],
+    "response": [
+      {
+        "type": "String",
+        "field": "status",
+        "description": "The status of the command"
+      },
+      {
+        "type": "String",
+        "field": "message",
+        "description": "Additional information"
+      }
+    ],
+    "example": "curl http://api.smartcar.com/vehicles/{{id}}/sunroof -X POST -H 'Authorization: {{apiKey}}' -d action=OPEN"
+  },
+  {
+    "method": "get",
+    "url": "/vehicles/:id/doors",
+    "title": "Vehicle Doors Status",
+    "request": [
+      {
+        "type": "String",
+        "field": "id",
+        "description": "The vehicle id"
+      }
+    ],
+    "response": [
+      {
+        "type": "Object[]",
+        "field": "doors",
+        "description": "Array of Door objects"
+      },
+      {
+        "type": "String",
+        "field": "doors.location",
+        "description": "The location of this door. One of: 'FRONT_LEFT', 'FRONT_RIGHT', 'BACK_LEFT', 'BACK_RIGHT'."
+      },
+      {
+        "type": "Boolean",
+        "field": "doors.isOpen",
+        "description": "true, if this door is open"
+      }
+    ],
+    "example": "curl http://api.smartcar.com/vehicles/{{id}}/doors -H 'Authorization: {{apiKey}}'"
+  },
+  {
+    "method": "get",
+    "url": "/vehicles/:id/fuel",
+    "title": "Vehicle Fuel Status",
+    "request": [
+      {
+        "type": "String",
+        "field": "id",
+        "description": "The vehicle id"
+      }
+    ],
+    "response": [
+      {
+        "type": "Number",
+        "field": "range",
+        "description": "The estimated remaining distance the car can travel (in Kilometers)."
+      },
+      {
+        "type": "Number",
+        "field": "percentRemaining",
+        "description": "The remaining level of fuel in the tank (from 0 to 1)."
+      }
+    ],
+    "example": "curl http://api.smartcar.com/vehicles/{{id}}/fuel -H 'Authorization: {{apiKey}}'"
+  },
+  {
+    "method": "get",
+    "url": "/vehicles/:id/location",
+    "title": "Vehicle Location",
+    "request": [
+      {
+        "type": "String",
+        "field": "id",
+        "description": "The vehicle id"
+      }
+    ],
+    "response": [
+      {
+        "type": "Number",
+        "field": "latitude",
+        "description": "Degrees latitude"
+      },
+      {
+        "type": "Number",
+        "field": "longitude",
+        "description": "Degrees longitude"
+      }
+    ],
+    "example": "curl http://api.smartcar.com/vehicles/{{id}}/location -H 'Authorization: {{apiKey}}'"
+  }
+]
